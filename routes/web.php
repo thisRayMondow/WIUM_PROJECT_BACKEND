@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\WIUM_PROJECT_DASHBOARD_controller;
+use App\Http\Controllers\WIUM_PROJECT_LOGIN_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('http://localhost:3000/');
 });
+
+Route::get('log-in', [WIUM_PROJECT_LOGIN_Controller::class, "LOGIN"])->name('login');
+Route::post('log-in', [WIUM_PROJECT_LOGIN_Controller::class, "credential"])->name("login-Credential");
+Route::get('log-out', [WIUM_PROJECT_LOGIN_Controller::class, "LOGOUT"])->name("logout");
+
+Route::get("dashboard", [WIUM_PROJECT_DASHBOARD_controller::class, "index"])->name('dashboard');

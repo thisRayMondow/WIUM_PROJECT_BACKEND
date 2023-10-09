@@ -32,6 +32,13 @@ return new class extends Migration
             'password' => md5("+1"),
             'kode_wilayah' => '-1',
         ]);
+        DB::table('users')->insert([
+            'name' => 'LOCAL',
+            'email' => 'LOCAL@MAIL.COM',
+            'kode' => '777',
+            'password' => md5("777"),
+            'kode_wilayah' => '-1',
+        ]);
     }
 
     /**

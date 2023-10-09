@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WIUM_PROJECT_DEPT_Controller;
+use App\Http\Controllers\WIUM_PROJECT_FRONTEND\FRONTEND_LOGIN_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +20,4 @@ use App\Http\Controllers\WIUM_PROJECT_DEPT_Controller;
 // });
 
 Route::get('WIUM_DEPT', [WIUM_PROJECT_DEPT_Controller::class, 'MAIN']);
+Route::post('LOG-IN', [FRONTEND_LOGIN_Controller::class, "LOGIN"]);

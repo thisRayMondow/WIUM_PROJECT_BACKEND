@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Halaman | Dashboard</title>
+    <title>Halaman | @yield('title')</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('BS5/css/bootstrap.min.css') }}">
@@ -98,22 +98,8 @@
             </div>
 
             <div class="mt-2 content border-start border-end p-2" style="width: 100%;">
-                <h1>Content</h1>
-                <div class="row">
-                    <!-- Loop untuk membuat 20 card -->
-                    <?php for ($i = 1; $i <= 4; $i++) : ?>
-                        <div class="col-3 mb-1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card <?= $i ?></h5>
-                                    <p class="card-text">Ini adalah konten card <?= $i ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endfor; ?>
-                </div>
-                
-                
+                @yield('content')
+
                 <footer class="mt-4 border-top border-dark text-center p-2">
                     &copy; 2023 WIUM, Jakarta Selatan
                 </footer>

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\departement;
 use Illuminate\Http\Request;
 
 class WIUM_PROJECT_DEPT_Controller extends Controller
 {
     private function WIUM_DEPT_SET() {
-        $WIUM_DEPT = [
-            ['link' => '#', 'dept' => 'WEST INDONESIA UNION MISSION', 'kode' => 'A90-UIKB'],
-            ['link' => '#', 'dept' => 'NORTH SUMATRA MISSION', 'kode' => 'A10-DSKU'],
-            ['link' => '#', 'dept' => 'UNIVERSITAS SURYA NUSANTARA', 'kode' => 'C12-USN'],
-        ];
-    
+        $dept = departement::all(['name','code']);
+        
+        foreach ($dept as $key => $value) {
+            $WIUM_DEPT[] =['link' => '#', 'dept' => $value->name, 'kode' => $value->code];
+        }    
         return $WIUM_DEPT;
     }
 
@@ -28,6 +28,23 @@ class WIUM_PROJECT_DEPT_Controller extends Controller
         // }
         // dd($this->WIUM_DEPT_SET()[1]);
         
+    }
+
+    public function ADD(Request $request){
+        $request->validate([
+            'dept' => 'required|string',
+            'kodeDept' => 'required|string',
+            'alamat' => 'required|string',
+        ]);
+
+        $addDataDept = new departement();
+        $addDataDept->name = $request->dept;
+        $addDataDept->code = $request->kodeDept;
+        $addDataDept->address = $request->alamat;
+        $addDataDept->save();
+
+        return redirect()->route('dashboard');
+            
     }
     
 }

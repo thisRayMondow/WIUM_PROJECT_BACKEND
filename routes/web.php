@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\WIUM_PROJECT_DASHBOARD_controller;
 use App\Http\Controllers\WIUM_PROJECT_LOGIN_Controller;
+use App\Http\Controllers\WIUM_PROJECT_DEPT_Controller;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\WIUM_PROJECT_FRONTEND\FRONTEND_LOGIN_Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +28,6 @@ Route::post('log-in', [WIUM_PROJECT_LOGIN_Controller::class, "credential"])->nam
 Route::get('log-out', [WIUM_PROJECT_LOGIN_Controller::class, "LOGOUT"])->name("logout");
 
 Route::get("dashboard", [WIUM_PROJECT_DASHBOARD_controller::class, "index"])->name('dashboard');
+Route::post('WIUM_DEPT', [WIUM_PROJECT_DEPT_Controller::class, 'ADD']);
+
+

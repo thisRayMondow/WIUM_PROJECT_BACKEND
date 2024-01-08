@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('kode');
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamp('delete_at')->nullable();
         });
 
         DB::table('users')->insert([

@@ -13,7 +13,7 @@
     <div class="col-md-3 mb-1">
         <div class="card">
             <div class="card-body">
-                <small>({{ $val->code }})</small>
+                <small>({{ $val->kode_wilayah }})</small>
                 <h6 class="card-title">{{ $val->name }}</h6>
                 <p class="card-text">{{ $val->address }}</p>
             </div>

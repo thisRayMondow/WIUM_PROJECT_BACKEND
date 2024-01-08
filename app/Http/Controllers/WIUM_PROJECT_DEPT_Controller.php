@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class WIUM_PROJECT_DEPT_Controller extends Controller
 {
     private function WIUM_DEPT_SET() {
-        $dept = departement::all(['name','code']);
+        $dept = departement::all(['name','kode_wilayah']);
         
         foreach ($dept as $key => $value) {
-            $WIUM_DEPT[] =['link' => '#', 'dept' => $value->name, 'kode' => $value->code];
+            $WIUM_DEPT[] =['link' => '#', 'dept' => $value->name, 'kode' => $value->kode_wilayah];
         }    
         return $WIUM_DEPT;
     }
@@ -39,7 +39,7 @@ class WIUM_PROJECT_DEPT_Controller extends Controller
 
         $addDataDept = new departement();
         $addDataDept->name = $request->dept;
-        $addDataDept->code = $request->kodeDept;
+        $addDataDept->kode_wilayah = $request->kodeDept;
         $addDataDept->address = $request->alamat;
         $addDataDept->save();
 

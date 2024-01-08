@@ -16,7 +16,7 @@ class WIUM_PROJECT_DASHBOARD_controller extends Controller
     }
 
     private function getDept(){
-        $dept =  departement::all(['name', 'code', 'address']);
+        $dept =  departement::all(['name', 'kode_wilayah', 'address']);
 
         return $dept;
     }

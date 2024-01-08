@@ -15,14 +15,15 @@ return new class extends Migration
         Schema::create('departements', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("code");
+            $table->string("kode_wilayah");
             $table->string("address");
             $table->timestamps();
+            $table->timestamp('delete_at')->nullable();
         });
 
         DB::table('departements')->insert([
             'name' => 'WEST INDONESIA UNION MISSION',
-            'code' => 'A90-UIKB',
+            'kode_wilayah' => 'A90-UIKB',
             'address' => 'Gedung Pertemuan Advent, Jl.Letjen MT Haryono Blok A kav. 4-5 Tebet Barat, Tebet Jakarta Selatan'
         ]);
     }

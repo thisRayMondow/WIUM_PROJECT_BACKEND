@@ -20,7 +20,8 @@ use App\Http\Controllers\WIUM_PROJECT_FRONTEND\FRONTEND_LOGIN_Controller;
 */
 
 Route::get('/', function () {
-    return redirect()->to('http://localhost:3000/');
+    // return redirect()->to('http://localhost:3000/');
+    return redirect()->to('http://10.13.0.37:3000/');
 });
 
 Route::get('log-in', [WIUM_PROJECT_LOGIN_Controller::class, "LOGIN"])->name('login');
